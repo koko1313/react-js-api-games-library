@@ -9,7 +9,7 @@ class Select extends Component {
 
     loadAllOptions = () => {
         const options = this.props.options.map((item, index) => {
-            return <option key={index} value={index}>{item}</option>
+            return <option key={index} value={item.id}>{item.name}</option>
         });
 
         return options;

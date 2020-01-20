@@ -1,5 +1,6 @@
 import React from 'react';
 import Select from './components/select';
+import constants from './constants';
 
 function App() {
   return (
@@ -13,10 +14,10 @@ function App() {
 
       <div className="row">
         <div className="col">
-          <Select name="Жанр" options={[1, 2]}/>
+          <Select name="Жанр" options={constants.allGenres()}/>
         </div>
         <div className="col">
-          <Select name="Платформа" options={[1, 2, 10]}/>
+          <Select name="Платформа" options={constants.allPlatforms()}/>
         </div>
       </div>
 
