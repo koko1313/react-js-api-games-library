@@ -8,8 +8,6 @@ import React, { Component } from "react";
 class Select extends Component {
 
     loadAllOptions = () => {
-        console.log(this.props.options);
-
         const options = this.props.options.map((item, index) => {
             return <option key={index} value={index}>{item}</option>
         });
