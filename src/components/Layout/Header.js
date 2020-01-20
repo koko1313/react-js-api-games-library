@@ -34,7 +34,7 @@ class Header extends Component {
                         tag={RRNavLink}
                         className="navbar-brand"
                         exact to="/">
-                        <i class="fa fa-gamepad mr-3"></i>
+                        <i className="fa fa-gamepad mr-3"></i>
                         <span className="project-name">Библиотека с игри</span>
                     </NavLink>
                     <NavbarToggler onClick={this.toggleIsOpen} />
