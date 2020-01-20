@@ -1,12 +1,11 @@
 import React from 'react';
-import Select from './components/Select';
-import constants from './constants';
 import GenreSelect from './components/GenreSelect';
 
 import { createStore, applyMiddleware } from "redux";
 import { Provider }  from "react-redux";
 import reducers from "./redux/reducers";
 import thunk from 'redux-thunk';
+import PlatformSelect from './components/PlatformSelect';
 
 const store = createStore(reducers, applyMiddleware(thunk));
 
@@ -26,7 +25,7 @@ function App() {
             <GenreSelect />
           </div>
           <div className="col">
-            <Select name="Платформа" options={constants.allPlatforms()}/>
+            <PlatformSelect />
           </div>
         </div>
 

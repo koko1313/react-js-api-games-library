@@ -6,10 +6,18 @@ function genres(state = [], action) {
         case types.SET_GENRES: {
             return [...action.payload];
         }
-
         default:
             return state;
     }
 }
 
-export default combineReducers({genres});
+function platforms(state = [], action) {
+    switch (action.type) {
+        case types.SET_PLATFORMS: {
+            return [...action.payload];
+        }
+        default: return state;
+    }
+}
+
+export default combineReducers({genres, platforms});
