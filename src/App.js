@@ -1,6 +1,5 @@
 import React from 'react';
-import GenreSelect from './components/genre-select';
-import PlatformSelect from './components/platform-select';
+import Select from './components/select';
 
 function App() {
   return (
@@ -14,10 +13,10 @@ function App() {
 
       <div className="row">
         <div className="col">
-          <GenreSelect/>
+          <Select name="Жанр" options={[1, 2]}/>
         </div>
         <div className="col">
-          <PlatformSelect/>
+          <Select name="Платформа" options={[1, 2, 10]}/>
         </div>
       </div>
 
