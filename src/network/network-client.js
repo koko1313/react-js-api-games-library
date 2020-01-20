@@ -3,7 +3,7 @@ import constants from '../constants';
 
 export default {
 
-    get(url, success, failure, params) {
+    get(url, params, success, failure) {
         return this.request({
             method: 'get',
             url,
@@ -50,7 +50,8 @@ export default {
             baseURL: constants.baseURL,
         }, options);
 
-        // data.params = Object.assign(options.params, {api_key: constants.apiKey});
+        data.params = Object.assign({}, options.params);
+
         return new Promise((resolve, reject) => {
 
             axios(data)
