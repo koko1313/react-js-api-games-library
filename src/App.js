@@ -1,36 +1,64 @@
 import React from 'react';
-import GenreSelect from './components/GenreSelect';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 import { createStore, applyMiddleware } from "redux";
 import { Provider }  from "react-redux";
 import reducers from "./redux/reducers";
 import thunk from 'redux-thunk';
-import PlatformSelect from './components/PlatformSelect';
+import Navbar from './components/Layout/Header';
+import GamesPage from './pages/GamesPage';
+import HomePage from './pages/HomePage';
 
 const store = createStore(reducers, applyMiddleware(thunk));
 
+const Layout = (props) => {
+  return <>
+      <Navbar/>
+      <div className="container mt-3">
+          {props.children}
+      </div>
+  </>
+};
+
+const routes = [
+  {
+      path: '/',
+      exact: true,
+      main: () => <Layout>
+        <HomePage/>
+      </Layout>
+  },
+  {
+    path: '/games',
+    exact: true,
+    main: () => <Layout>
+      <GamesPage/>
+    </Layout>
+  },
+];
+
+const getRoutes = () => {
+  return routes.map((route, index) => {
+      return <Route key={index} exact={route.exact} path={route.path}>
+          {route.main}
+      </Route>;
+  });
+}
+
 function App() {
   return (
-    <Provider store={store}>
-      <div className="container">
-
-        <div className="row">
-          <div className="col">
-            <h1>Библиотека с игри</h1>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col">
-            <GenreSelect />
-          </div>
-          <div className="col">
-            <PlatformSelect />
-          </div>
-        </div>
-
-      </div>
-    </Provider>
+   <Provider store={store}>
+    <Router>
+        <Switch>
+          {getRoutes()}
+        </Switch>
+    </Router>
+  </Provider>
   );
 }
 
