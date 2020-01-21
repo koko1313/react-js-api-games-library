@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import './style.scss';
 
 import { connect } from "react-redux";
@@ -38,7 +39,7 @@ class GamesList extends Component {
                     <div className="col-md">
                         <h3>{game.name}</h3>
                         <span className="badge badge-warning rating">{game.rating} / {game.rating_top}</span>
-                        <p>{game.released}</p>
+                        <p>{moment(game.released).format('MMMM Do YYYY')}</p>
                         <hr />
                         <p>Платформи: <span>{this.getPlatformNamesAsString(game)}</span></p>
                         <p>Жанрове: <span>{this.getGenreNamesAsString(game)}</span></p>
