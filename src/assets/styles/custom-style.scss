@@ -3,5 +3,9 @@ body {
 }
 
 h1 {
-    color: theme-color("primary");
+    color: $primary;
+}
+
+hr {
+    background-color: $secondary;
 }

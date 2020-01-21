@@ -1,0 +1,14 @@
+@import '../../assets/styles/styles.scss';
+
+.game-result {
+    position: relative;
+    border: 1px solid $secondary;
+    border-radius: 10px;
+    background-color: $light-dark;
+}
+
+.rating {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+}
