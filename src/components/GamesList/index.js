@@ -96,12 +96,12 @@ class GamesList extends Component {
                 previousLinkClassName = {'page-link'}
                 nextLinkClassName = {'page-link'}
                 
-                onPageChange = {this.nextPage}
+                onPageChange = {this.goToPage}
             />
         );
     }
 
-    nextPage = (e) => {
+    goToPage = (e) => {
         const page = e.selected + 1; // the selected page
         this.setState({
             page: page
@@ -113,7 +113,6 @@ class GamesList extends Component {
     render() {
         return <>
             {this.renderGames()}
-            <button className="btn btn-primary" onClick={this.nextPage}>Next page</button>
             {this.renderPages()}
         </>
     }
