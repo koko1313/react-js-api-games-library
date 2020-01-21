@@ -2,4 +2,5 @@ export default {
     SET_ERROR: 'SET_ERROR',
     SET_GENRES: 'SET_GENRES',
     SET_PLATFORMS: 'SET_PLATFORMS',
+    SET_GAMES: 'SET_GAMES',
 };

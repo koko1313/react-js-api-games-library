@@ -6,8 +6,7 @@ function genres(state = [], action) {
         case types.SET_GENRES: {
             return [...action.payload];
         }
-        default:
-            return state;
+        default: return state;
     }
 }
 
@@ -20,4 +19,13 @@ function platforms(state = [], action) {
     }
 }
 
-export default combineReducers({genres, platforms});
+function games(state = [], action) {
+    switch (action.type) {
+        case types.SET_GAMES: {
+            return [...action.payload];
+        }
+        default: return state;
+    }
+}
+
+export default combineReducers({genres, platforms, games});
