@@ -41,10 +41,10 @@ export function setGames (games) {
     return {type: types.SET_GAMES, payload: games};
 }
 
-export const getGames = () => async dispatch => {
+export const getGames = (params) => async dispatch => {
     try {
-        const res = await networkClient.get("games");
-        dispatch(setGames(res.results));
+        const res = await networkClient.get("games", params);
+        dispatch(setGames(res));
     } catch(ex) {
         dispatch(setError({message: 'There was an error!'}));
     }

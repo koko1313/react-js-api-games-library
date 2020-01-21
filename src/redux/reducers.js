@@ -19,10 +19,10 @@ function platforms(state = [], action) {
     }
 }
 
-function games(state = [], action) {
+function games(state = {}, action) {
     switch (action.type) {
         case types.SET_GAMES: {
-            return [...action.payload];
+            return {...action.payload};
         }
         default: return state;
     }

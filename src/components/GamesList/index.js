@@ -8,8 +8,24 @@ import * as actions from "../../redux/actions";
 
 class GamesList extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            page: 1,
+            page_size: 10,
+            pages_count: 0,
+        }
+    }
+
     componentDidMount(){
-        this.props.getGames();
+        this.getAllGames();
+    }
+
+    getAllGames = () => {
+        this.props.getGames({
+            page: this.state.page,
+            page_size: this.state.page_size,
+        });
     }
 
     getPlatformNamesAsString = (game) => {
@@ -29,7 +45,10 @@ class GamesList extends Component {
     }
 
     renderGames = () => {
-        const games = this.props.games;
+        const games = this.props.games.results;
+
+        if(!games) return null; // if games are not loaded
+
         const gameResults = games.map((game) => {
             return (
                 <div key={game.id} className="row game-result py-3 my-3">
@@ -50,8 +69,30 @@ class GamesList extends Component {
         return gameResults;
     }
 
+    renderPages = () => {
+        const gamesTotalCount = this.props.games.count;
+
+        if(!gamesTotalCount) return null; // if games are not loaded
+
+        const pagesCount = Math.ceil(gamesTotalCount / this.state.page_size);
+
+        console.log(pagesCount);
+    }
+
+    nextPage = (e) => {
+        this.setState({
+            page: this.state.page + 1
+        }, () => {
+            this.getAllGames();
+        });
+    }
+
     render() {
-        return this.renderGames();
+        return <>
+            {this.renderGames()}
+            <button className="btn btn-primary" onClick={this.nextPage}>Next page</button>
+            {this.renderPages()}
+        </>
     }
 
 }
