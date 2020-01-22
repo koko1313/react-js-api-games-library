@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Paginate from '../base-components/Paginate';
+import Design1 from './GameResultDesign/GameResultDesign1';
+import Design2 from './GameResultDesign/GameResultDesign2';
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../../redux/actions";
-import Design1 from './GameResultDesign/GameResultDesign1';
-import Design2 from './GameResultDesign/GameResultDesign2';
 
 class GamesList extends Component {
 
