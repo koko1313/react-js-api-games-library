@@ -32,9 +32,9 @@ function games(state = {}, action) {
 function resultDesign(state = DESIGNS_ENUM.DESIGN_ROWS, action) {
     switch (action.type) {
         case types.SET_RESULT_DESIGN: {
-            return action.payload;
+           return action.payload;
         }
-        default: return state
+        default: return state;
     }
 }
 

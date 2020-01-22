@@ -1,0 +1,10 @@
+@import '../../assets/styles/styles.scss';
+
+.result-design-button {
+    background-color: $secondary!important;
+    margin: 0 5px 0 5px;
+}
+
+.result-design-button.active {
+    background-color: $primary!important;
+}

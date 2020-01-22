@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './style.scss';
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -11,13 +12,19 @@ import * as actions from "../../redux/actions";
  */
 class ChangeDesignButton extends Component {
 
+    isActive = () => {
+        if (this.props.value === this.props.resultDesign) {
+            return "active";
+        }
+    }
+
     changeResultDesign = (e) => {
-        this.props.setResultDesign(e.target.value);
+        this.props.setResultDesign(e.target.id);
     }
 
     render() {
         return (
-            <button className="" onClick={this.changeResultDesign} value={this.props.value}>{this.props.label}</button>
+            <span className={"btn result-design-button " + this.isActive()} onClick={this.changeResultDesign} id={this.props.value}> {this.props.label} </span>
         );
     }
 

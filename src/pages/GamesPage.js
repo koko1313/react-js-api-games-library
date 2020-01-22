@@ -21,8 +21,10 @@ const GamesPage = () => {
             <PlatformSelect />
           </div>
           <div className="col">
-            <ChangeDesignButton value={DESIGNS_ENUM.DESIGN_ROWS} label="1" />
-            <ChangeDesignButton value={DESIGNS_ENUM.DESIGN_GRID} label="2" />
+            <ChangeDesignButton value={DESIGNS_ENUM.DESIGN_ROWS} label="Rows" />
+            <ChangeDesignButton value={DESIGNS_ENUM.DESIGN_GRID} label="Grid" />
+            {/* <ChangeDesignButton value={DESIGNS_ENUM.DESIGN_ROWS} label={<i className="fa fa-th-list"></i>} />
+            <ChangeDesignButton value={DESIGNS_ENUM.DESIGN_GRID} label={<i className="fa fa-th"></i>} /> */}
           </div>
         </div>
 
