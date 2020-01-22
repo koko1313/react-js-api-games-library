@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import Paginate from 'react-paginate';
+import Paginate from '../base-components/Paginate';
 import './style.scss';
 
 import { connect } from "react-redux";
@@ -77,28 +77,7 @@ class GamesList extends Component {
 
         const pagesCount = Math.ceil(gamesTotalCount / this.state.page_size);
 
-        return (
-            <Paginate
-                pageCount = {pagesCount}
-                pageRangeDisplayed = {3}
-                marginPagesDisplayed = {2}
-                previousLabel = {<i className="fa fa-step-backward"></i>}
-                nextLabel = {<i className="fa fa-step-forward"></i>}
-                breakLabel = {'...'}
-                breakClassName = {'page-item'}
-                breakLinkClassName = {'page-link'}
-                containerClassName = {'pagination justify-content-center'}
-                pageClassName = {'page-item'}
-                pageLinkClassName = {'page-link'}
-                activeClassName = {'active'}
-                previousClassName = {'page-item'}
-                nextClassName = {'page-item'}
-                previousLinkClassName = {'page-link'}
-                nextLinkClassName = {'page-link'}
-                
-                onPageChange = {this.goToPage}
-            />
-        );
+        return <Paginate pagesCount={pagesCount} onPageChange={this.goToPage} />;
     }
 
     goToPage = (e) => {
