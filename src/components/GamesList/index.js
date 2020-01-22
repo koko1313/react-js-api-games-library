@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Paginate from '../base-components/Paginate';
-import Design1 from './GameResultDesign/GameResultDesign1';
-import Design2 from './GameResultDesign/GameResultDesign2';
-import designs from './GameResultDesign/designs';
+import DesignRows from './GameResultDesign/DesignRows';
+import DesignGrid from './GameResultDesign/DesignGrid';
+import DESIGNS_ENUM from './GameResultDesign/DESIGNS_ENUM';
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -36,8 +36,8 @@ class GamesList extends Component {
         if(!games) return null; // if games are not loaded
 
         switch(this.props.resultDesign) {
-            case designs.DESIGN_ROWS: return <Design1 games={games} />;
-            case designs.DESIGN_GRID: return <Design2 games={games} />;
+            case DESIGNS_ENUM.DESIGN_ROWS: return <DesignRows games={games} />;
+            case DESIGNS_ENUM.DESIGN_GRID: return <DesignGrid games={games} />;
             default: return null;
         }
     }

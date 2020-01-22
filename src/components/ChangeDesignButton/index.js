@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import designs from '../GamesList/GameResultDesign/designs';
+import DESIGNS_ENUM from '../GamesList/GameResultDesign/DESIGNS_ENUM';
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -14,8 +14,8 @@ class ChangeDesignButton extends Component {
     render() {
         return (
             <>
-            <button onClick={this.changeResultDesign} value={designs.DESIGN_ROWS}>Rows</button>
-            <button onClick={this.changeResultDesign} value={designs.DESIGN_GRID}>Grid</button>
+            <button onClick={this.changeResultDesign} value={DESIGNS_ENUM.DESIGN_ROWS}>Rows</button>
+            <button onClick={this.changeResultDesign} value={DESIGNS_ENUM.DESIGN_GRID}>Grid</button>
             </>
         )
     }

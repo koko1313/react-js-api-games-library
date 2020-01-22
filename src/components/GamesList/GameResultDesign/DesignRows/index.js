@@ -6,7 +6,7 @@ import '../style.scss';
  * Expected parameters:
  * - [JSON Array] games
  */
-class Design2 extends Component {
+class DesignRows extends Component {
 
     getPlatformNamesAsString = (game) => {
         let platforms = [];
@@ -27,11 +27,11 @@ class Design2 extends Component {
     render() {
         const gameResults = this.props.games.map((game) => {
             return (
-                <div key={game.id} className="card game-result m-2">
-                    <div>
-                        <img className="img-fluid mb-3" src={game.background_image} alt={game.slug}/>
+                <div key={game.id} className="row game-result py-3 my-3">
+                    <div className="col-md-4">
+                        <img className="img-fluid mb-3 mb-md-0" src={game.background_image} alt={game.slug}/>
                     </div>
-                    <div className="px-2">
+                    <div className="col-md">
                         <h3>{game.name}</h3>
                         <span className="badge badge-warning rating">{game.rating} / {game.rating_top}</span>
                         <p>{moment(game.released).format('MMMM Do YYYY')}</p>
@@ -43,13 +43,9 @@ class Design2 extends Component {
             );
         });
 
-        return <>
-            <div className="card-deck">
-                {gameResults}
-            </div>
-        </>
+        return gameResults;
     }
 
 }
 
-export default Design2;
+export default DesignRows;
