@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-import DESIGNS_ENUM from '../GamesList/GameResultDesign/DESIGNS_ENUM';
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../../redux/actions";
 
+/**
+ * Expected parameters:
+ * - [DESIGNS_ENUM] value
+ * - [String] label
+ */
 class ChangeDesignButton extends Component {
 
     changeResultDesign = (e) => {
@@ -13,11 +17,8 @@ class ChangeDesignButton extends Component {
 
     render() {
         return (
-            <>
-            <button onClick={this.changeResultDesign} value={DESIGNS_ENUM.DESIGN_ROWS}>Rows</button>
-            <button onClick={this.changeResultDesign} value={DESIGNS_ENUM.DESIGN_GRID}>Grid</button>
-            </>
-        )
+            <button className="" onClick={this.changeResultDesign} value={this.props.value}>{this.props.label}</button>
+        );
     }
 
 }
