@@ -1,11 +1,14 @@
-@import '../../assets/styles/styles.scss';
+@import '../../../assets/styles/styles.scss';
 
 .game-result {
     position: relative;
-    border: 1px solid $secondary;
+    border: 1px solid $secondary!important;
     border-radius: 10px;
-    background-color: $light-dark;
+    background-color: $light-dark!important;
+    overflow: hidden;
     transition: all 0.5s;
+
+    min-width: 350px!important;
 }
 
 .game-result:hover {
