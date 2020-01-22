@@ -10,16 +10,18 @@ class BaseResult extends Component {
         let platforms = [];
         game.parent_platforms.map((platform) => {
             platforms.push(platform.platform.name);
+        }, () => {
+            return platforms.join(", ");
         });
-        return platforms.join(", ");
     }
 
     getGenreNamesAsString = (game) => {
         let genres = [];
         game.genres.map((genre) => {
             genres.push(genre.name);
+        }, () => {
+            return genres.join(", ");
         });
-        return genres.join(", ");
     }
 
     render() {
