@@ -2,6 +2,7 @@ import React from 'react';
 import GenreSelect from '../components/GenreSelect';
 import PlatformSelect from '../components/PlatformSelect';
 import GamesList from '../components/GamesList';
+import ChangeDesignButton from '../components/ChangeDesignButton';
 
 const GamesPage = () => {
     return <>
@@ -17,6 +18,9 @@ const GamesPage = () => {
           </div>
           <div className="col">
             <PlatformSelect />
+          </div>
+          <div className="col">
+            <ChangeDesignButton />
           </div>
         </div>
 

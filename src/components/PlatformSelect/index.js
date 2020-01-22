@@ -1,5 +1,5 @@
 import React from "react";
-import Select from "../Select";
+import Select from "../base-components/Select";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";

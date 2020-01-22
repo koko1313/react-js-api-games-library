@@ -49,3 +49,13 @@ export const getGames = (params) => async dispatch => {
         dispatch(setError({message: 'There was an error!'}));
     }
 }
+
+// #######################
+
+export function setResultDesign (design) {
+    return {type: types.SET_RESULT_DESIGN, payload: design};
+}
+
+export const getResultDesign = () => async dispatch => {
+    dispatch(setResultDesign());
+}

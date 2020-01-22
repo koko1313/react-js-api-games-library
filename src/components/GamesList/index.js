@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Paginate from '../base-components/Paginate';
 import Design1 from './GameResultDesign/GameResultDesign1';
 import Design2 from './GameResultDesign/GameResultDesign2';
+import designs from './GameResultDesign/designs';
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -29,6 +30,18 @@ class GamesList extends Component {
         });
     }
 
+    renderGames = () => {
+        const games = this.props.games.results;
+
+        if(!games) return null; // if games are not loaded
+
+        switch(this.props.resultDesign) {
+            case designs.DESIGN_ROWS: return <Design1 games={games} />;
+            case designs.DESIGN_GRID: return <Design2 games={games} />;
+            default: return null;
+        }
+    }
+
     renderPages = () => {
         const gamesTotalCount = this.props.games.count;
 
@@ -49,14 +62,10 @@ class GamesList extends Component {
     }
 
     render() {
-        const games = this.props.games.results;
-
-        if(!games) return null; // if games are not loaded
-
         return <>
             <div className="row">
                 <div className="col">
-                    <Design1 games={games} />
+                    {this.renderGames()}
                 </div>
             </div>
             <div className="row">
@@ -72,6 +81,7 @@ class GamesList extends Component {
 const mapStateToProps = state => {
     return {
         games: state.games,
+        resultDesign: state.resultDesign,
     }
 };
 

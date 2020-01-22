@@ -1,5 +1,6 @@
 import {combineReducers} from "redux";
 import types from "./action-types";
+import designs from "../components/GamesList/GameResultDesign/designs";
 
 function genres(state = [], action) {
     switch (action.type) {
@@ -28,4 +29,13 @@ function games(state = {}, action) {
     }
 }
 
-export default combineReducers({genres, platforms, games});
+function resultDesign(state = designs.DESIGN_ROWS, action) {
+    switch (action.type) {
+        case types.SET_RESULT_DESIGN: {
+            return action.payload;
+        }
+        default: return state
+    }
+}
+
+export default combineReducers({genres, platforms, games, resultDesign});
