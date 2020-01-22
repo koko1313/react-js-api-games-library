@@ -1,28 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import moment from 'moment';
-import '../style.scss';
+import BaseResult from '../BaseResult';
 
 /**
  * Expected parameters:
  * - [JSON Array] games
  */
-class DesignGrid extends Component {
-
-    getPlatformNamesAsString = (game) => {
-        let platforms = [];
-        game.parent_platforms.map((platform) => {
-            platforms.push(platform.platform.name);
-        });
-        return platforms.join(", ");
-    }
-
-    getGenreNamesAsString = (game) => {
-        let genres = [];
-        game.genres.map((genre) => {
-            genres.push(genre.name);
-        });
-        return genres.join(", ");
-    }
+class DesignGrid extends BaseResult {
 
     render() {
         const gameResults = this.props.games.map((game) => {
