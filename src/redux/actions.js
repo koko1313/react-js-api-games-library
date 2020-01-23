@@ -69,3 +69,13 @@ export function setSelectedPage (page = 1) {
 export const getSelectedPage = () => async dispatch => {
     dispatch(setSelectedPage());
 }
+
+// #######################
+
+export function setCurrentPage (page) {
+    return {type: types.SET_CURRENT_PAGE, payload: page};
+}
+
+export const getCurrentPage = () => async dispatch => {
+    dispatch(setCurrentPage());
+}

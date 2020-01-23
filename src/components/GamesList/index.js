@@ -13,14 +13,8 @@ class GamesList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedPage: this.props.selectedPage,
             page_size: 10,
         }
-    }
-
-    // TODO когато излезем и пак влезем в компонента, презареждаме пак всички игри, не трябва да е така
-    componentDidMount(){
-        this.getAllGames();
     }
 
     getAllGames = () => {
@@ -32,9 +26,9 @@ class GamesList extends Component {
 
     renderGames = () => {
         // when selected page is changed, call this.getAllGames() again
-        if(this.state.selectedPage != this.props.selectedPage) {
+        if(this.props.currentPage != this.props.selectedPage) {
             this.getAllGames();
-            this.setState({selectedPage: this.props.selectedPage});
+            this.props.setCurrentPage(this.props.selectedPage);
         }
 
         const games = this.props.games.results;
@@ -80,6 +74,7 @@ const mapStateToProps = state => {
         games: state.games,
         resultDesign: state.resultDesign,
         selectedPage: state.selectedPage,
+        currentPage: state.currentPage,
     }
 };
 
@@ -88,6 +83,7 @@ const mapStateToDispatch = dispatch => {
     return bindActionCreators({
         setGames: actions.setGames,
         getGames: actions.getGames,
+        setCurrentPage: actions.setCurrentPage,
     }, dispatch)
 };
 
