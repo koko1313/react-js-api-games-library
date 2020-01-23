@@ -18,17 +18,44 @@ class GamesList extends Component {
     }
 
     getAllGames = () => {
-        this.props.getGames({
+        const options = {
             page: this.props.selectedPage,
             page_size: this.state.page_size,
-        });
+        };
+
+        // append aditional options of there are
+        let aditionalOptions = {};
+
+        if(this.props.selectedPlatform != 0) {
+            aditionalOptions.parent_platforms = this.props.selectedPlatform;
+        }
+
+        if(this.props.selectedGenre != 0) {
+            aditionalOptions.genres = this.props.selectedGenre
+        }
+
+        const allOptions = Object.assign({}, options, aditionalOptions);
+
+        this.props.getGames(allOptions);
     }
 
     renderGames = () => {
         // when selected page is changed, call this.getAllGames() again
-        if(this.props.currentPage != this.props.selectedPage) {
+        if(this.props.currentPage !== this.props.selectedPage) {
             this.getAllGames();
             this.props.setCurrentPage(this.props.selectedPage);
+        }
+
+        // when selected platform is changed, call this.getALlGames() again
+        if(this.props.currentPlatform !== this.props.selectedPlatform) {
+            this.getAllGames();
+            this.props.setCurrentPlatform(this.props.selectedPlatform);
+        }
+
+        // when selected genre is changed, call this.getALlGames() again
+        if(this.props.currentGenre !== this.props.selectedGenre) {
+            this.getAllGames();
+            this.props.setCurrentGenre(this.props.selectedGenre);
         }
 
         const games = this.props.games.results;
@@ -75,6 +102,10 @@ const mapStateToProps = state => {
         resultDesign: state.resultDesign,
         selectedPage: state.selectedPage,
         currentPage: state.currentPage,
+        selectedPlatform: state.selectedPlatform,
+        currentPlatform: state.currentPlatform,
+        selectedGenre: state.selectedGenre,
+        currentGenre: state.currentGenre,
     }
 };
 
@@ -84,6 +115,8 @@ const mapStateToDispatch = dispatch => {
         setGames: actions.setGames,
         getGames: actions.getGames,
         setCurrentPage: actions.setCurrentPage,
+        setCurrentPlatform: actions.setCurrentPlatform,
+        setCurrentGenre: actions.setCurrentGenre,
     }, dispatch)
 };
 

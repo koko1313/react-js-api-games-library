@@ -79,3 +79,43 @@ export function setCurrentPage (page) {
 export const getCurrentPage = () => async dispatch => {
     dispatch(setCurrentPage());
 }
+
+// #######################
+
+export function setSelectedGenre (page) {
+    return {type: types.SET_SELECTED_GENRE, payload: page};
+}
+
+export const getSelectedGenre = () => async dispatch => {
+    dispatch(setSelectedGenre());
+}
+
+// #######################
+
+export function setSelectedPlatform (page) {
+    return {type: types.SET_SELECTED_PLATFORM, payload: page};
+}
+
+export const getSelectedPlatform = () => async dispatch => {
+    dispatch(setSelectedPlatform());
+}
+
+// #######################
+
+export function setCurrentGenre (genre) {
+    return {type: types.SET_CURRENT_GENRE, payload: genre};
+}
+
+export const getCurrentGenre = () => async dispatch => {
+    dispatch(setCurrentGenre());
+}
+
+// #######################
+
+export function setCurrentPlatform (platform) {
+    return {type: types.SET_CURRENT_PLATFORM, payload: platform};
+}
+
+export const getCurrentPlatform = () => async dispatch => {
+    dispatch(setCurrentPlatform());
+}

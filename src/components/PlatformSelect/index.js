@@ -11,6 +11,10 @@ class PlatformSelect extends Select {
         this.props.getPlatforms();
     }
 
+    selectPlatform = (e) => {
+        this.props.setSelectedPlatform(e.target.value);
+    }
+
     render() {
         // if platforms are not loaded, load them
         if(this.props.platforms.length === 0) {
@@ -19,7 +23,7 @@ class PlatformSelect extends Select {
 
         const platforms = this.props.platforms;
         return (
-            <Select name="Платформа" options={platforms}/>
+            <Select name="Платформа" options={platforms} onChange={this.selectPlatform} selectedValue={this.props.selectedPlatform} />
         );
     }
 
@@ -30,6 +34,7 @@ const mapStateToProps = state => {
         // в props.platforms ще се запише резултата
         // state.platforms е функцията от reducers, която извикваме
         platforms: state.platforms,
+        selectedPlatform: state.selectedPlatform,
     }
 };
 
@@ -38,6 +43,7 @@ const mapStateToDispatch = dispatch => {
     return bindActionCreators({
         setPlatforms: actions.setPlatforms,
         getPlatforms: actions.getPlatforms,
+        setSelectedPlatform: actions.setSelectedPlatform,
     }, dispatch)
 };
 

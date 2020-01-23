@@ -11,6 +11,10 @@ class GenreSelect extends Select {
         this.props.getGenres();
     }
 
+    selectGenre = (e) => {
+        this.props.setSelectedGenre(e.target.value);
+    }
+
     render() {
         // if genres are not loaded, load them
         if(this.props.genres.length === 0) {
@@ -18,8 +22,9 @@ class GenreSelect extends Select {
         }
 
         const genres = this.props.genres;
+       
         return (
-            <Select name="Жанр" options={genres}/>
+            <Select name="Жанр" options={genres} onChange={this.selectGenre} selectedValue={this.props.selectedGenre} />
         );
     }
 
@@ -30,6 +35,7 @@ const mapStateToProps = state => {
         // в props.genres ще се запише резултата
         // state.genres е функцията от reducers, която извикваме
         genres: state.genres,
+        selectedGenre: state.selectedGenre,
     }
 };
 
@@ -38,6 +44,7 @@ const mapStateToDispatch = dispatch => {
     return bindActionCreators({
         setGenres: actions.setGenres,
         getGenres: actions.getGenres,
+        setSelectedGenre: actions.setSelectedGenre,
     }, dispatch)
 };
 

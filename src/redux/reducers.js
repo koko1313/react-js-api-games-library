@@ -56,4 +56,40 @@ function currentPage(state = 0, action) {
     }
 }
 
-export default combineReducers({genres, platforms, games, resultDesign, selectedPage, currentPage});
+function selectedGenre(state = 0, action) {
+    switch (action.type) {
+        case types.SET_SELECTED_GENRE: {
+            return action.payload;
+         }
+         default: return state;
+    }
+}
+
+function selectedPlatform(state = 0, action) {
+    switch (action.type) {
+        case types.SET_SELECTED_PLATFORM: {
+            return action.payload;
+         }
+         default: return state;
+    }
+}
+
+function currentGenre(state = 0, action) {
+    switch (action.type) {
+        case types.SET_CURRENT_GENRE: {
+           return action.payload;
+        }
+        default: return state;
+    }
+}
+
+function currentPlatform(state = 0, action) {
+    switch (action.type) {
+        case types.SET_CURRENT_PLATFORM: {
+           return action.payload;
+        }
+        default: return state;
+    }
+}
+
+export default combineReducers({genres, platforms, games, resultDesign, selectedPage, currentPage, selectedGenre, selectedPlatform, currentGenre, currentPlatform});
