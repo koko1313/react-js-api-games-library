@@ -52,6 +52,7 @@ class GamesList extends Component {
         return <Paginate pagesCount={pagesCount} onPageChange={this.goToPage} />;
     }
 
+    // TODO - да изнеса тази функция в компонента Paginate и да направя в него, избраната страница да се записва в redux, за да при излизане и влизане в нея, да не се губи селектираната страница
     goToPage = (e) => {
         const page = e.selected + 1; // the selected page
         this.setState({

@@ -8,7 +8,7 @@ import * as actions from "../../redux/actions";
 /**
  * Expected parameters:
  * - [DESIGNS_ENUM] value
- * - [String] label
+ * - [String] label - as children element
  */
 class ChangeDesignButton extends Component {
 
@@ -24,7 +24,8 @@ class ChangeDesignButton extends Component {
 
     render() {
         return (
-            <span className={"btn result-design-button " + this.isActive()} onClick={this.changeResultDesign} id={this.props.value}> {this.props.label} </span>
+            <span className={"btn result-design-button " + this.isActive()} onClick={this.changeResultDesign} id={this.props.value}> {this.props.children} </span>
+            //<span className={"btn result-design-button " + this.isActive()} onClick={this.changeResultDesign} id={this.props.value}> {this.props.children} </span>
         );
     }
 
