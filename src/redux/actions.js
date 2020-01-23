@@ -28,7 +28,7 @@ export function setPlatforms (platforms) {
 
 export const getPlatforms = () => async dispatch => {
     try {
-        const res = await networkClient.get("platforms");
+        const res = await networkClient.get("platforms/lists/parents");
         dispatch(setPlatforms(res.results));
     } catch(ex) {
         dispatch(setError({message: 'There was an error!'}));
