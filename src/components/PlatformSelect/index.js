@@ -7,11 +7,16 @@ import * as actions from "../../redux/actions";
 
 class PlatformSelect extends Select {
 
-    componentDidMount(){
+    getAllPlatforms = () => {
         this.props.getPlatforms();
     }
 
     render() {
+        // if platforms are not loaded, load them
+        if(this.props.platforms.length === 0) {
+            this.getAllPlatforms();
+        }
+
         const platforms = this.props.platforms;
         return (
             <Select name="Платформа" options={platforms}/>

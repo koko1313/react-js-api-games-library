@@ -7,11 +7,16 @@ import * as actions from "../../redux/actions";
 
 class GenreSelect extends Select {
 
-    componentDidMount(){
+    getAllGenres = () => {
         this.props.getGenres();
     }
 
     render() {
+        // if genres are not loaded, load them
+        if(this.props.genres.length === 0) {
+            this.getAllGenres();
+        }
+
         const genres = this.props.genres;
         return (
             <Select name="Жанр" options={genres}/>
