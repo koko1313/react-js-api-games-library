@@ -24,8 +24,8 @@ class ChangeDesignButton extends Component {
 
     render() {
         return (
-            <span className={"btn result-design-button " + this.isActive()} onClick={this.changeResultDesign} id={this.props.value}> {this.props.children} </span>
-            //<span className={"btn result-design-button " + this.isActive()} onClick={this.changeResultDesign} id={this.props.value}> {this.props.children} </span>
+            <button className={"btn result-design-button " + this.isActive()} onClick={this.changeResultDesign} id={this.props.value}> {this.props.children} </button>
+            //<button className={"btn result-design-button " + this.isActive()} onClick={this.changeResultDesign} id={this.props.value}> {this.props.children} </button>
         );
     }
 
