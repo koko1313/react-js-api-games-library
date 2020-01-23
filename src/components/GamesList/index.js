@@ -13,24 +13,30 @@ class GamesList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            page: 1,
+            selectedPage: this.props.selectedPage,
             page_size: 10,
-            pages_count: 0,
         }
     }
 
+    // TODO когато излезем и пак влезем в компонента, презареждаме пак всички игри, не трябва да е така
     componentDidMount(){
         this.getAllGames();
     }
 
     getAllGames = () => {
         this.props.getGames({
-            page: this.state.page,
+            page: this.props.selectedPage,
             page_size: this.state.page_size,
         });
     }
 
     renderGames = () => {
+        // when selected page is changed, call this.getAllGames() again
+        if(this.state.selectedPage != this.props.selectedPage) {
+            this.getAllGames();
+            this.setState({selectedPage: this.props.selectedPage});
+        }
+
         const games = this.props.games.results;
 
         if(!games) return null; // if games are not loaded
@@ -49,17 +55,7 @@ class GamesList extends Component {
 
         const pagesCount = Math.ceil(gamesTotalCount / this.state.page_size);
 
-        return <Paginate pagesCount={pagesCount} onPageChange={this.goToPage} />;
-    }
-
-    // TODO - да изнеса тази функция в компонента Paginate и да направя в него, избраната страница да се записва в redux, за да при излизане и влизане в нея, да не се губи селектираната страница
-    goToPage = (e) => {
-        const page = e.selected + 1; // the selected page
-        this.setState({
-            page: page
-        }, () => {
-            this.getAllGames();
-        });
+        return <Paginate pagesCount={pagesCount} />;
     }
 
     render() {
@@ -83,6 +79,7 @@ const mapStateToProps = state => {
     return {
         games: state.games,
         resultDesign: state.resultDesign,
+        selectedPage: state.selectedPage,
     }
 };
 

@@ -59,3 +59,13 @@ export function setResultDesign (design) {
 export const getResultDesign = () => async dispatch => {
     dispatch(setResultDesign());
 }
+
+// #######################
+
+export function setSelectedPage (page = 1) {
+    return {type: types.SET_SELECTED_PAGE, payload: page};
+}
+
+export const getSelectedPage = () => async dispatch => {
+    dispatch(setSelectedPage());
+}

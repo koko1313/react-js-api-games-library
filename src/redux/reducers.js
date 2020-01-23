@@ -38,4 +38,13 @@ function resultDesign(state = DESIGNS_ENUM.DESIGN_ROWS, action) {
     }
 }
 
-export default combineReducers({genres, platforms, games, resultDesign});
+function selectedPage(state = 1, action) {
+    switch (action.type) {
+        case types.SET_SELECTED_PAGE: {
+           return action.payload;
+        }
+        default: return state;
+    }
+}
+
+export default combineReducers({genres, platforms, games, resultDesign, selectedPage});

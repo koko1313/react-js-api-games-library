@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
 
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actions from "../../../redux/actions";
+
 /**
  * Expected parameters:
  * - [int] pagesCount
- * - [function] onPageChange
  */
 class Paginate extends ReactPaginate {
+
+    goToPage = (e) => {
+        const page = e.selected + 1; // the selected page
+        this.props.setSelectedPage(page);
+    }
+
     render() {
         return (
             <ReactPaginate
@@ -26,11 +35,26 @@ class Paginate extends ReactPaginate {
                 nextClassName = {'page-item'}
                 previousLinkClassName = {'page-link'}
                 nextLinkClassName = {'page-link'}
+                initialPage = {this.props.selectedPage-1}
                 
-                onPageChange = {this.props.onPageChange}
+                onPageChange = {this.goToPage}
             />
         )
     }
 }
 
-export default Paginate;
+const mapStateToProps = state => {
+    return {
+        selectedPage: state.selectedPage,
+    }
+};
+
+
+const mapStateToDispatch = dispatch => {
+    return bindActionCreators({
+        setSelectedPage: actions.setSelectedPage,
+        getSelectedPage: actions.getSelectedPage,
+    }, dispatch)
+};
+
+export default connect(mapStateToProps, mapStateToDispatch)(Paginate);
