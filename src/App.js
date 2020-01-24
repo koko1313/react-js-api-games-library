@@ -13,7 +13,7 @@ import thunk from 'redux-thunk';
 import Navbar from './components/Layout/Header';
 import GamesPage from './pages/GamesPage';
 import HomePage from './pages/HomePage';
-import GameDetailsPage from './pages/GameDetailsPage';
+import GameDetailsPage from './pages/GameDetailsPage/index';
 
 const store = createStore(reducers, applyMiddleware(thunk));
 

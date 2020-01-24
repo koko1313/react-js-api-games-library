@@ -1,0 +1,16 @@
+@import '../../assets/styles/styles.scss';
+
+.game-description {
+    position: relative;
+    border: 1px solid $secondary;
+    border-radius: 20px;
+    background-color: $light-dark;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.game-description img {
+    border: 1px solid $secondary;
+    border-radius: 10px 0 10px 0;
+    padding: 2px;
+}
