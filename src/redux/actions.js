@@ -119,3 +119,18 @@ export function setCurrentPlatform (platform) {
 export const getCurrentPlatform = () => async dispatch => {
     dispatch(setCurrentPlatform());
 }
+
+// #######################
+
+export function setGameDetails (gameId) {
+    return {type: types.SET_GAME_DETAILS, payload: gameId};
+}
+
+export const getGameDetails = (gameId) => async dispatch => {
+    try {
+        const res = await networkClient.get(`games/${gameId}`);
+        dispatch(setGameDetails(res));
+    } catch(ex) {
+        dispatch(setError({message: 'There was an error!'}));
+    }
+}

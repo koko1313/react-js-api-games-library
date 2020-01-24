@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from "react-router-dom";
 import moment from 'moment';
 import BaseResult from '../BaseResult';
 
@@ -8,10 +9,14 @@ import BaseResult from '../BaseResult';
  */
 class DesignRows extends BaseResult {
 
+    showGameDetails = (e) => {
+        this.props.history.push(`/games/${e.target.id}`);
+    }
+
     render() {
         const gameResults = this.props.games.map((game) => {
             return (
-                <div key={game.id} className="row game-result py-3 my-3">
+                <div key={game.id} id={game.id} className="row game-result py-3 my-3">
                     <div className="col-md-4">
                         <img className="img-fluid mb-3 mb-md-0" src={game.background_image} alt={game.slug}/>
                     </div>
@@ -22,6 +27,7 @@ class DesignRows extends BaseResult {
                         <hr />
                         <p>Платформи: <span>{this.getPlatformNamesAsString(game)}</span></p>
                         <p>Жанрове: <span>{this.getGenreNamesAsString(game)}</span></p>
+                        <button className="btn btn-primary" id={game.id} onClick={this.showGameDetails}>Прочети повече</button>
                     </div>
                 </div>
             );
@@ -32,4 +38,4 @@ class DesignRows extends BaseResult {
 
 }
 
-export default DesignRows;
+export default withRouter(DesignRows);

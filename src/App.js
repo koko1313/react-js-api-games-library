@@ -13,6 +13,7 @@ import thunk from 'redux-thunk';
 import Navbar from './components/Layout/Header';
 import GamesPage from './pages/GamesPage';
 import HomePage from './pages/HomePage';
+import GameDetailsPage from './pages/GameDetailsPage';
 
 const store = createStore(reducers, applyMiddleware(thunk));
 
@@ -38,6 +39,13 @@ const routes = [
     exact: true,
     main: () => <Layout>
       <GamesPage/>
+    </Layout>
+  },
+  {
+    path: '/games/:id',
+    exact: false,
+    main: () => <Layout>
+      <GameDetailsPage/>
     </Layout>
   },
 ];

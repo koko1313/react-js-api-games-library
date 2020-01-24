@@ -92,4 +92,13 @@ function currentPlatform(state = 0, action) {
     }
 }
 
-export default combineReducers({genres, platforms, games, resultDesign, selectedPage, currentPage, selectedGenre, selectedPlatform, currentGenre, currentPlatform});
+function gameDetails(state = {}, action) {
+    switch (action.type) {
+        case types.SET_GAME_DETAILS: {
+            return {...action.payload};
+        }
+        default: return state;
+    }
+}
+
+export default combineReducers({genres, platforms, games, resultDesign, selectedPage, currentPage, selectedGenre, selectedPlatform, currentGenre, currentPlatform, gameDetails});
