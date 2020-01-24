@@ -11,13 +11,25 @@
     min-width: 350px!important;
 }
 
+/*
 .game-result:hover {
     cursor: pointer;
     transform: scale(1.01);
 }
+*/
 
-.rating {
+.game-result .rating {
     position: absolute;
     top: 0.5rem;
     right: 1rem;
+}
+
+.game-result button {
+    background-color: $primary;
+    color: $dark;
+}
+
+.game-result button:hover {
+    background-color: $secondary;
+    color: $light-dark;
 }

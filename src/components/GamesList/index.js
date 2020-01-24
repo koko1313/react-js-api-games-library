@@ -13,7 +13,7 @@ class GamesList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            page_size: 10,
+            page_size: 12,
         }
     }
 
