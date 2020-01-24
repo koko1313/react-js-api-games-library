@@ -14,13 +14,13 @@ const GamesPage = () => {
         </div>
 
         <div className="row">
-          <div className="col">
+          <div className="col-md">
             <GenreSelect />
           </div>
-          <div className="col">
+          <div className="col-md">
             <PlatformSelect />
           </div>
-          <div className="col">
+          <div className="col-md-2 text-right">
             <ChangeDesignButton value={DESIGNS_ENUM.DESIGN_ROWS}>Rows</ChangeDesignButton>
             <ChangeDesignButton value={DESIGNS_ENUM.DESIGN_GRID}>Grid</ChangeDesignButton>
             {/* <ChangeDesignButton value={DESIGNS_ENUM.DESIGN_ROWS}><i className="fa fa-th-list"></i></ChangeDesignButton>
