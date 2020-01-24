@@ -25,7 +25,7 @@ class GameDetailsPage extends Component {
 
         return <>
             <div className="game-description">
-                <div className="rating">
+                <div className="rating pull-right">
                     <span className="badge badge-warning">{game.rating} / {game.rating_top}</span>
                 </div>
                 <div className="row">
@@ -47,7 +47,7 @@ class GameDetailsPage extends Component {
                     </div>
 
                     <div className="col-md">
-                        <img className="img-fluid" src={game.background_image} />
+                        <img className="img-fluid" src={game.background_image} alt={game.slug} />
                     </div>
                 </div>
             </div>

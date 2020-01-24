@@ -6,6 +6,9 @@
 // Customize Bootstrap Variables
 @import "./variables";
 
+// Import custom font from Google
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
 // Load Bootstrap
 @import "~bootstrap/scss/bootstrap";
 
