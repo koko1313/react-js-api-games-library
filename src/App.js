@@ -12,7 +12,7 @@ import reducers from "./redux/reducers";
 import thunk from 'redux-thunk';
 import Navbar from './components/Layout/Header';
 import GamesPage from './pages/GamesPage';
-import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
 import GameDetailsPage from './pages/GameDetailsPage/index';
 
 const store = createStore(reducers, applyMiddleware(thunk));
@@ -31,21 +31,21 @@ const routes = [
       path: '/',
       exact: true,
       main: () => <Layout>
-        <HomePage/>
+        <GamesPage />
       </Layout>
   },
   {
-    path: '/games',
+    path: '/about',
     exact: true,
     main: () => <Layout>
-      <GamesPage/>
+      <AboutPage />
     </Layout>
   },
   {
     path: '/games/:id',
     exact: false,
     main: () => <Layout>
-      <GameDetailsPage/>
+      <GameDetailsPage />
     </Layout>
   },
 ];
