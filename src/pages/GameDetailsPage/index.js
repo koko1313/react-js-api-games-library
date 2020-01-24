@@ -38,7 +38,7 @@ class GameDetailsPage extends Component {
                     <div className="col-md-7">
                         <p>
                             <strong>Уеб сайт: </strong>
-                            <em><a href={game.website}>{game.website}</a></em>
+                            <em><a href={game.website} target="_blank">{game.website}</a></em>
                         </p>
                         <p>
                             <strong>Описание: </strong>
