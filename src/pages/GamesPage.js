@@ -21,10 +21,8 @@ const GamesPage = () => {
             <PlatformSelect />
           </div>
           <div className="col-md-2 text-right">
-            <ChangeDesignButton value={DESIGNS_ENUM.DESIGN_ROWS}>Rows</ChangeDesignButton>
-            <ChangeDesignButton value={DESIGNS_ENUM.DESIGN_GRID}>Grid</ChangeDesignButton>
-            {/* <ChangeDesignButton value={DESIGNS_ENUM.DESIGN_ROWS}><i className="fa fa-th-list"></i></ChangeDesignButton>
-            <ChangeDesignButton value={DESIGNS_ENUM.DESIGN_GRID}><i className="fa fa-th"></i></ChangeDesignButton> */}
+            <ChangeDesignButton value={DESIGNS_ENUM.DESIGN_ROWS}><i className="fa fa-th-list"></i></ChangeDesignButton>
+            <ChangeDesignButton value={DESIGNS_ENUM.DESIGN_GRID}><i className="fa fa-th"></i></ChangeDesignButton>
           </div>
         </div>
 

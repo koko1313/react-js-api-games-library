@@ -19,13 +19,12 @@ class ChangeDesignButton extends Component {
     }
 
     changeResultDesign = (e) => {
-        this.props.setResultDesign(e.target.id);
+        this.props.setResultDesign(e.currentTarget.id);
     }
 
     render() {
         return (
             <button className={"btn result-design-button " + this.isActive()} onClick={this.changeResultDesign} id={this.props.value}> {this.props.children} </button>
-            //<button className={"btn result-design-button " + this.isActive()} onClick={this.changeResultDesign} id={this.props.value}> {this.props.children} </button>
         );
     }
 
