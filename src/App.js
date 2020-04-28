@@ -1,9 +1,9 @@
 import React from 'react';
 
 import {
-  BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  HashRouter
 } from "react-router-dom";
 
 import { createStore, applyMiddleware } from "redux";
@@ -61,11 +61,11 @@ const getRoutes = () => {
 function App() {
   return (
    <Provider store={store}>
-    <Router>
+    <HashRouter>
         <Switch>
           {getRoutes()}
         </Switch>
-    </Router>
+    </HashRouter>
   </Provider>
   );
 }
